@@ -83,7 +83,7 @@ router.post('/newuser',(req,res)=>{
 })
 router.get('/axios',async (req,res)=>{
     await axios.get(
-        "http://localhost:3000/users"
+        "https://ems-v1og.onrender.com/users"
     )
     .then((users)=>{
         // console.log(users.data)
