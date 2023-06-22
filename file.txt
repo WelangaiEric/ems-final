@@ -1,0 +1,46 @@
+router.post('/login',urlencodedParser,[
+    check('username','Username is required')
+        .trim()
+        .exists()
+        .notEmpty()
+        ,
+    check('Password','Password is required')
+        .trim()
+        .exists()
+        .notEmpty(),
+
+       
+], async (req,res)=>{
+    let errors = validationResult(req)
+    if (!errors.isEmpty()){
+        const error =errors.array(); 
+    }
+    else{
+        try{
+            const check= await Users.findOne({email:req.body.username})
+
+            
+            if(check){
+                if(check.Password==='testuser'&& check.email==='admin@gmail.com'){
+                   return  res.redirect("/admin-portal")
+                }
+                
+                
+                        
+                        
+                   
+                 
+                    
+                }
+                else{
+                    return  res.render('login',{title:'login',alert:'wrong password'})
+                } 
+            } 
+        }
+        catch(err){
+            res.render('login',{title:'login',alert:'Incorrect Details',})
+            // res.send(err)
+        }
+    }
+}
+)

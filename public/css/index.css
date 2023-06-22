@@ -1,0 +1,391 @@
+:root{
+    --Dark-blue:#3D6D89;
+    --light-blue:#BADAEE;
+    --sky-blue:#01D1FF;
+    --red-error:#FC0202;
+    --white:#FFFFFF;
+    --grey:#F5F5F5;
+    --dark-grey:#b3b3b3;
+
+}
+*{
+    box-sizing: border-box;
+    
+}
+.text-blue{
+    color: var(--Dark-blue) !important;
+}
+.text-grey{
+    color: var(--dark-grey);
+}
+.text-white{
+    color: var(--white) !important;
+}
+.text-error{
+    color:var(--red-error) !important;
+}
+.error{
+    border: var(--red-error) solid 1px !important;
+}
+.text-nopm{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.font-mid{
+    font-weight: 500;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-grey{
+    background-color: var(--grey) !important;
+
+}
+.bg-blue{
+    background-color: var(--Dark-blue) !important;
+}
+.bg-white{
+    background-color: var(--white) !important;
+}
+.hover:hover{
+    background-color: var(--dark-grey);
+    color: var(--Dark-blue);
+}
+.bold{
+    font-weight: 500 !important;
+}
+li{
+    list-style: none !important;
+}
+a{
+    text-decoration: none !important;
+}
+
+img{
+    width: 100%;
+}
+body{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: montserrat,sans-serif !important;
+
+
+}
+header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: red solid; */
+
+}
+.brand{
+    width: 20%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+
+}
+.nav-links{
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+
+}
+.nav-links ul{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.nav-links a{
+    /* color: var(--Dark-blue); */
+    font-weight: 600;
+}
+.active{
+    color: var(--Dark-blue);
+
+}
+.show{
+    display: flex;
+}
+.nav-links a:hover{
+    color: var(--dark-grey);
+}
+.notifications{
+    width: 20%;
+    height: 100%;
+    font-size: 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    position: relative;
+    z-index: 70;
+}
+.open{
+    position: absolute;
+    width: 300px;
+    /* height: 400px; */
+    background-color: var(--dark-grey);
+    /* z-index: 100; */
+    top: 60px;
+    right: 100px;
+    border-radius: 8px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 5px;
+}
+.issues{
+    width: 100%;
+    
+    /* border: #01D1FF solid; */
+    padding: 5px;
+    border-radius: 8px;
+    background-color: var(--grey);
+
+
+}
+.issues p{
+    font-size: 16px
+    ;
+    font-weight: 400;
+}
+.redirect{
+    display: none;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    background-color: #FC0202;
+    z-index: 50;
+    position: absolute;
+    top: -23px;
+    right: 150px;
+    border-radius: 50%;
+
+}
+
+.icons{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    width: 100%;
+    height: 90vh;
+    /* border: #3D6D89 solid; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+.wrapper-header{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+.wrapper-body{
+    width: 90%;
+    min-height: 60vh;
+    /* border: #01D1FF solid; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+
+}
+.task-manager{
+    width: 40%;
+    /* height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+}
+.task-manager-header{
+    width: 90%;
+    /* border: #01D1FF solid; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+
+}
+.shape{
+    width: 100%;
+    /* border: #01D1FF solid; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+   /* flex-direction: column; */
+    gap: 20px;
+    padding: 5px;
+    border-radius: 8px;
+}
+.task-manager-body{
+    width: 90%;
+    /* border: #01D1FF solid; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+   flex-direction: column;
+    gap: 20px;
+    padding: 5px;
+
+}
+
+.shape:hover{
+    background-color: rgba(243, 243, 243, 0.44);
+}
+.round{
+    border-radius: 50%;
+}
+.task-logo{
+    width:10%;
+    height:50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.task-company{
+    width: 70%;
+}
+.task-logo h6{
+    width:50px ;
+    height: 50px;
+
+}
+.task-manage{
+    width: 20%;
+    gap: 20px;
+
+}
+.employee-manager{
+    display: flex;
+    /* height: 50vh; */
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+table{
+    width: 100%;
+    /* margin-top: 150px; */
+}
+th{
+    width: 25%;
+    padding: 10px;
+    
+
+}
+
+tr{
+    border-radius: 16px !important;
+    
+
+
+}
+
+
+td{
+   
+    padding: 10px;
+    height: 100%;
+}
+td p{
+    margin: 0;
+}
+.auxiliary{
+    font-size: 12px;
+}
+.action{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.action p{
+    font-size: 14px;
+}
+.action p:hover{
+    color: var(--dark-grey);
+}
+.animate-me{
+    position: absolute !important;
+    /* display: initial; */
+    top: -60px;
+    left: 45%;
+    z-index: 30;
+    animation: animate 4s ease-in;
+
+  }
+  @keyframes animate{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+        
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(180px);
+
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-30px);
+        
+
+    }
+  }
+  @media screen and (max-width:1092px) {
+    .redirect{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('../images/background.jpeg');
+        background-size: cover;
+        
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .redirect h1{
+        border-radius: 8px;
+        padding: 20px;
+    }
+    .wrapper{
+        display: none;
+    }
+    header{
+        display: none;
+    }
+    
+  }
