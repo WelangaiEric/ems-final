@@ -67,14 +67,10 @@ router.post('/send',generateToken, async (req,res)=>{
      }
 
     ).then((result)=>{
-        console.log(result.data)
-<<<<<<< HEAD
-        res.send((result.data))
+       
+      
         res.render('admin',{title:'admin portal',success:'payment initiated'})
-=======
-        
-        res.render('admin',{title:'admin portal'})
->>>>>>> 600509e7a373f524d5411f9996dc72aed742dce0
+
     }).catch((err)=>{
         console.log(err)
         
