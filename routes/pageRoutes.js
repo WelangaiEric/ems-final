@@ -24,7 +24,7 @@ router.get('/admin-portal', async (req,res)=>{
     let taskData 
     let requestData
     await axios.get(
-        "http://localhost:3000/tasks"
+        "https://ems-v1og.onrender.com/tasks"
 
     )
     .then((tasks)=>{
@@ -37,7 +37,7 @@ router.get('/admin-portal', async (req,res)=>{
         res.send(err)
     })
     await axios.get(
-        "http://localhost:3000/requests"
+        "https://ems-v1og.onrender.com/requests"
 
     )
     .then((request)=>{
@@ -52,7 +52,7 @@ router.get('/admin-portal', async (req,res)=>{
     // console.log(taskData)
 
     await axios.get(
-        "http://localhost:3000/users"
+        "https://ems-v1og.onrender.com/users"
     )
     .then((users)=>{
         let usersData = users.data
@@ -89,7 +89,7 @@ router.post('/validate-email',async (req,res,next)=>{
 router.get('/employee-portal', async (req,res)=>{
     let taskData
     await axios.get(
-        "http://localhost:3000/tasks"
+        "https://ems-v1og.onrender.com/tasks"
 
     )
     .then((tasks)=>{
