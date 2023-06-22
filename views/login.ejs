@@ -4,7 +4,11 @@
 <%- include('./partials/nav.ejs') %>
     
     <div class="containerr">
-        
+           <%if(typeof danger != 'undefined'){%>
+               <div class="alert alert-danger animate-me" role="alert">
+                 <%=danger%>
+               </div>
+               <%}%>
          <form action="/login" method="post" class="login">
             <div class="form-header">
                 <div class="form-logo">
