@@ -16,7 +16,9 @@ const urlencodedParser = bodyParser.urlencoded({extended:false})
 router.get('/',(req,res)=>{
     res.render('index',{title:'home'})
 })
-
+router.get('/logout',(req,res)=>{
+    res.render('login',{title:'login'})
+})
 router.get('/portal',(req,res)=>{
     res.render('login',{title:'login'})
 })
