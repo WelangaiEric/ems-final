@@ -146,6 +146,9 @@ router.post('/login',async (req,res)=>{
                 
     
                     }
+                else{
+                    res.render('login',{title:'login',danger:'incorrect username or password'})
+                }
                   
                 
             })
