@@ -119,17 +119,19 @@ router.post('/login',async (req,res)=>{
             await Users.findOne({email:req.body.email})
             .then((result)=>{
                 check = result
-            console.log(check)
+                console.log(check)
+                const password = `${check.phone}`
+                console.log(password)
 
                
-                    if(check.employeeRole==='admin'&& check.email===req.body.email&&check.phone===req.body.password){
+                    if(check.employeeRole==='admin'&& check.email===req.body.email&&password===req.body.password){
                     //   res.render('admin',{title:'Admin-portal',user:check})
                       res.redirect('/admin-portal')
                     //   console.log(check)
                 
     
                     }
-                         if(check.employeeRole==='user'&& check.email===req.body.email&&check.phone===req.body.password){
+                         if(check.employeeRole==='user'&& check.email===req.body.email&&password===req.body.password){
                     //   res.render('admin',{title:'Admin-portal',user:check})
                       const finder= `${check.firstName}${check.lastName}`
                         console.log(finder)
