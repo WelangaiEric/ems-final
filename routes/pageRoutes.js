@@ -119,7 +119,7 @@ router.post('/login',async (req,res)=>{
             await Users.findOne({email:req.body.email})
             .then((result)=>{
                 check = result
-            console.log(check.employeeRole)
+            console.log(check)
 
                
                     if(check.employeeRole==='admin'&& check.email===req.body.email&&check.phone===req.body.password){
