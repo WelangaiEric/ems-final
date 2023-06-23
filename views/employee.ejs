@@ -189,9 +189,10 @@
         </div>
         <div class="wrap-body">
             <div class="requests">
+<% if (typeof user !='undefined') {%> 
                 <form class="request-card" method="post" action="/requests">
-                    <input type="text" hidden name="empId" value="30sdf">
-                    <input type="text" hidden name="empName" value="Welangai Eric">
+                    <input type="text" hidden name="empId" value=<%=user._id%>>
+                    <input type="text" hidden name="empName" value=<%=user.firstName%><%=user.lastName%>>
                     <input type="text" hidden name="requestType" value="Access Request">
                     <div class="request-card-header">
                         <i class="bi bi-file-earmark-medical-fill"></i>
@@ -204,8 +205,8 @@
                     </div>
                 </form>
                 <form class="request-card" method="post" action="/requests">
-                    <input type="text" hidden name="empId" value="30sdf">
-                    <input type="text" hidden name="empName" value="Welangai Eric">
+                    <input type="text" hidden name="empId" value=<%=user._id%>>
+                    <input type="text" hidden name="empName" value=<%=user.firstName%><%=user.lastName%>>
                     <input type="text" hidden name="requestType" value="collaboration tools Request">
 
                     <div class="request-card-header">
@@ -218,8 +219,8 @@
                     </div>
                 </form>
                 <form class="request-card" method="post" action="/requests">
-                    <input type="text" hidden name="empId" value="30sdf">
-                    <input type="text" hidden name="empName" value="Welangai Eric">
+                    <input type="text" hidden name="empId" value=<%=user._id%>>
+                    <input type="text" hidden name="empName" value=<%=user.firstName%><%=user.lastName%>>
                     <input type="text" hidden name="requestType" value="Email Request">
                     
                     <div class="request-card-header">
@@ -232,8 +233,8 @@
                     </div>
                 </form>
                 <form class="request-card" method="post" action="/requests">
-                    <input type="text" hidden name="empId" value="30sdf">
-                    <input type="text" hidden name="empName" value="Welangai Eric">
+                    <input type="text" hidden name="empId" value=<%=user._id%>>
+                    <input type="text" hidden name="empName" value=<%=user.firstName%><%=user.lastName%>>
                     <input type="text" hidden name="requestType" value="Facility Request">
                     <div class="request-card-header">
                         <i class="bi bi-file-earmark-medical-fill"></i>
@@ -245,8 +246,8 @@
                     </div>
                 </form>
                 <form class="request-card" method="post" action="/requests">
-                    <input type="text" hidden name="empId" value="30sdf">
-                    <input type="text" hidden name="empName" value="Welangai Eric">
+                   <input type="text" hidden name="empId" value=<%=user._id%>>
+                    <input type="text" hidden name="empName" value=<%=user.firstName%><%=user.lastName%>>
                     <input type="text" hidden name="requestType" value="Leave Request">
                     <div class="request-card-header">
                         <i class="bi bi-file-earmark-medical-fill"></i>
@@ -258,8 +259,8 @@
                     </div>
                 </form>
                 <form class="request-card" method="post" action="/requests">
-                    <input type="text" hidden name="empId" value="30sdf">
-                    <input type="text" hidden name="empName" value="Welangai Eric">
+                    <input type="text" hidden name="empId" value=<%=user._id%>>
+                    <input type="text" hidden name="empName" value=<%=user.firstName%><%=user.lastName%>>
                     <input type="text" hidden name="requestType" value="IT Staff Request">
                     <div class="request-card-header">
                         <i class="bi bi-file-earmark-medical-fill"></i>
@@ -270,6 +271,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
                     </div>
                 </form>
+ <% } %>
                 <div class="wrap-footer">
                     <div class="tasks">
                         <h4><i class="bi bi-list-task"></i> My Tasks</h4>
