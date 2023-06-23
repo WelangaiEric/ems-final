@@ -51,7 +51,29 @@ router.post('/requests',(req,res)=>{
     const request = new Request(req.body)
     request.save()
     .then((data)=>{
-        res.render('employee', {title:'employee portal',success:`${data.requestType} for ${data.empName} has been sent`})
+
+
+            let check
+            Users.findOne({id:req.body.empId})
+            .then((result)=>{
+                check = result
+                console.log(check)
+                      const finder= `${check.firstName}${check.lastName}`
+                        console.log(finder)
+                        Tasks.find({employee:finder})
+                        .then(
+                            (mytasks)=>{
+                                console.log(mytasks)
+                                res.render('employee',{title:'employee portal',tasks:mytasks,user:check,success:`${data.requestType} for ${data.empName} has been sent`})
+                              
+                        })
+                        .catch((err)=>res.render('login',{title:'login',danger:'something went wrong'}))
+                    //   console.log(chec
+
+
+
+            })
+       
     })
     .catch((err)=>{
         res.render('employee',{title:'employee portal',danger:'an error occured contact system admin'})  
