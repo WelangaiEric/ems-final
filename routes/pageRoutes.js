@@ -122,15 +122,16 @@ router.post('/login',async (req,res)=>{
             console.log(check.employeeRole)
 
                
-                    if(check.employeeRole==='admin'&& check.email===req.body.email){
+                    if(check.employeeRole==='admin'&& check.email===req.body.email&&check.phone===req.body.password){
                     //   res.render('admin',{title:'Admin-portal',user:check})
                       res.redirect('/admin-portal')
                     //   console.log(check)
                 
     
                     }
-                    else{
-                        const finder= `${check.firstName}${check.lastName}`
+                         if(check.employeeRole==='user'&& check.email===req.body.email&&check.phone===req.body.password){
+                    //   res.render('admin',{title:'Admin-portal',user:check})
+                      const finder= `${check.firstName}${check.lastName}`
                         console.log(finder)
                         Tasks.find({employee:finder})
                     
@@ -140,15 +141,16 @@ router.post('/login',async (req,res)=>{
                                 console.log(mytasks)
                                 res.render('employee',{title:'employee portal',tasks:mytasks,user:check})
                         })
-                        .catch((err)=>res.send(err))
-                        // .catch((err)=>res.send(err))
-                        
-                        // console.log(check)
-                    } 
+                        .catch((err)=>res.render('login',{title:'login',danger:'incorrect username or password'}))
+                    //   console.log(check)
+                
+    
+                    }
+                  
                 
             })
             .catch((err)=>{
-                res.render('login',{danger:'incorrect username or password'})
+                res.render('login',{title:'login',danger:'incorrect username or password'})
             })
 
          
