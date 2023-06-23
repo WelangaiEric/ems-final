@@ -54,7 +54,7 @@ router.post('/requests',(req,res)=>{
 
 
             let check
-            Users.findOne({id:req.body.empId})
+            Users.findOne({id:data.empId})
             .then((result)=>{
                 check = result
                 console.log(check)
