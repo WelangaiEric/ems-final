@@ -141,7 +141,7 @@ router.post('/login',async (req,res)=>{
                                 console.log(mytasks)
                                 res.render('employee',{title:'employee portal',tasks:mytasks,user:check})
                         })
-                        .catch((err)=>res.render('login',{title:'login',danger:'incorrect username or password'}))
+                        .catch((err)=>res.render('login',{title:'login',danger:'something went wrong'}))
                     //   console.log(check)
                 
     
