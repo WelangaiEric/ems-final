@@ -147,7 +147,9 @@ router.post('/login',async (req,res)=>{
                     } 
                 
             })
-            .catch((err)=>res.send(err))
+            .catch((err)=>{
+                res.render('login',{danger:'incorrect username or password'})
+            })
 
          
         }
