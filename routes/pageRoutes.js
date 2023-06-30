@@ -9,6 +9,7 @@ const Tasks = require('../models/tasks')
 const Users = require('../models/users')
 
 const flash = require('connect-flash');
+const app = express();
 
 app.use(session({
     secret: 'secret key',
