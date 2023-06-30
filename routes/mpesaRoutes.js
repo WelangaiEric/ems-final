@@ -38,7 +38,7 @@ const generateToken = async ( req,res,next)=>{
 
 router.post('/send',generateToken, async (req,res)=>{
     const phone = req.body.phone
-    const amount = req.body.amount; 
+    const amount = req.body.Amount; 
     const date = new Date();
     const timestamp =   
         date.getFullYear()+
