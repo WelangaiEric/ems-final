@@ -9,6 +9,7 @@
         <link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/bootstrap.css.map">
+        <script src="/js/index.js"></script>
         
        
         <title>EMS</title>
@@ -49,6 +50,11 @@
                      <%=danger%>
                    </div>
                    <%}%>
+                   <%if(typeof message != 'undefined'){%>
+                    <div class="alert alert-success animate-me" role="alert">
+                        <%=message %>
+                       </div>
+                       <%}%>
             <div class="wrapper-header mt-3">
                 <h3 class="text-blue">Employees</h3>
                 <button class="btn bg-success text-white bold" data-bs-toggle="modal" data-bs-target="#salary"><i class="bi bi-cash text-white "></i> Salary Payment</button>
@@ -126,7 +132,7 @@
                                         <input type="number" class="form-control" name="phone" placeholder="Phone Number eg 2547XXXXXXXX">
                                     </div>
                                     <div class="input-group mt-3">
-                                        <input type="number" class="form-control" name="Amount" placeholder="Amount">
+                                        <input type="number" class="form-control" name="amount" placeholder="Amount">
                                     </div>
                                     <div class="input-group mt-3">
                                         <input type="submit" class="form-control btn btn-primary"  value="Deposit">
@@ -308,7 +314,7 @@
     
                 </div>
                 <div class="employee-manager text-blue">
-                    <table>
+                    <table class="table-stipped">
                         <thead >
                             <th class="text-blue "><i class="bi bi-person-fill text-grey"></i> Employee</th>
                             <th class="text-blue "><i class="bi bi-cash text-grey"></i> salary</th>
@@ -334,7 +340,7 @@
                                             <p class="auxiliary"><%= user.phone%></p>
                                         </td>
                                         <td class="action">
-                                            <a href=""  class="center" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
+                                            <a href=""  class="center" id="updatePen" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
                                             <!-- <a href="/deleteuser/" class="center"><i class="bi bi-trash-fill text-blue"></i></a>   -->
                                             <form action="/deleteuser" method="post">
                                                 <input type="text" name="id" hidden value=<%=user._id %>>
@@ -352,7 +358,7 @@
                                                     <div class="modal-body">
                                                         <form action="/updateuser" method="post">
                                                             
-                                                                <input type="text" hidden name="id" class="form-control"  value=<%= user._id %>>
+                                                                <input type="text" hidden name="id" id="userId" class="form-control"  value=<%= user._id %>>
                                                             
                                                             <div class="input-group mt-3">
                                                                 <input type="number" class="form-control" name="phone" placeholder=<%= user.phone %> required>
@@ -362,7 +368,7 @@
                                                             </div>
                                                             
                                                             <div class="input-group mt-3">
-                                                                <input type="submit" class="btn btn-primary"  value="Update">
+                                                                <input type="submit" class="btn btn-primary" id="updatebtn"  value="Update">
                                                             </div>
                                                         </form>
                                                     </div>
