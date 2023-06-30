@@ -2,6 +2,15 @@ const express = require('express')
 const router = express.Router()
 require('dotenv').config()
 const axios = require('axios')
+const flash = require('connect-flash');
+
+app.use(session({
+    secret: 'secret key',
+    resave: false,
+    saveUninitialized: false
+  }));
+
+  app.use(flash());
 
 // token generation middleware
 const generateToken = async ( req,res,next)=>{
@@ -29,7 +38,7 @@ const generateToken = async ( req,res,next)=>{
 
 router.post('/send',generateToken, async (req,res)=>{
     const phone = req.body.phone
-    const amount = req.body.Amount; 
+    const amount = req.body.amount; 
     const date = new Date();
     const timestamp =   
         date.getFullYear()+
@@ -68,11 +77,13 @@ router.post('/send',generateToken, async (req,res)=>{
 
     ).then((result)=>{
        
-      
-        res.render('admin',{title:'admin portal',success:'payment initiated'})
+        req.flash('message', 'Payment initiated');
+        res.redirect('/admin-portal')
 
     }).catch((err)=>{
-        console.log(err)
+        req.flash('message', 'error encountered: please try again');
+        res.redirect('/admin-portal')
+        
         
     })
 
@@ -87,11 +98,11 @@ router.post('/salary',generateToken ,async (req,res)=>{
         {
             
                 "InitiatorName": "testapi",
-                "SecurityCredential": "hoB4ob+KXzhkejzTeqAmEOuf+at2J4Cc8Il613AETKGeusIEJgNP4h51/gu3wQGPjRCjAhJEhwlSoBKlTrkIOtUqfGh4yK+mazDVYDc+5TbHIg5t/DMZdnRzVZYmI9qySDnyBXlsi0dxbofEkwpf3v5pjvwuPhxxIn+uUxnjDnJymyUHCGDoW+28Qs9NkvNS9VJk4mN8aj4jMjsQ681mtBDv7XV6NtV4BtzlFf4Lvr9YZ52McpcW7h+EKXJqbSL7wJeVkloM1qjeazu9npF44TwEeNDJoYKd07hyIgQQwvSBd1VW2CyGMZaEK1oVv6E4E98Oni0XFFOO5rx2NZ565A==",
-                "CommandID": "SalaryPayment",
+                "SecurityCredential": "UWg7Ywxi0zjFU9Rgsbbiob4pFgxVM8lt9+WN2XRv60TsNEPEjbK+K+USZCD20HaOw2ONgfo5vruwxG84HdoNhBIdbu5PIoRwlvolu9FY85Vt92nt5bIZacSuPltDzRKofzzMU6c8f/t+vnM2soUFPuntFsl98GFGLMW2yuO3ZWn5/FIDrOnF57u2gMhPr5NafMAbgLse+CPq63D6qTYyS2liyZhKP64pcxrVb0Dh0a36mSFej4UwiOWLx4x2Fw2hwxL6w8HFsLfpQzyA66Lh5IkfdT6DKZyZyFKnAK/ve+W2Gc+l12MEpNmwd+mOuV/1fGtDSU1rRgFA7jjOWRFVGg==",
+                "CommandID": "BusinessPayment",
                 "Amount": "1",
                 "PartyA": "600977",
-                "PartyB": "254110517055",
+                "PartyB": "254708374149",
                 "Remarks": "Test remarks",
                 "QueueTimeOutURL": "https://mydomain.com/b2c/queue",
                 "ResultURL": "https://mydomain.com/b2c/result",
@@ -104,7 +115,17 @@ router.post('/salary',generateToken ,async (req,res)=>{
 	        'Authorization': `Bearer ${token}`
         }}
     )
+    .then((result)=>{
+       
+        req.flash('message', 'Payment initiated');
+        res.redirect('/admin-portal')
 
+    }).catch((err)=>{
+        req.flash('message', 'error encountered: please try again');
+        res.redirect('/admin-portal')
+        
+        
+    })
 })
 
 
