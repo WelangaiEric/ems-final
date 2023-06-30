@@ -3,14 +3,9 @@ const router = express.Router()
 require('dotenv').config()
 const axios = require('axios')
 const flash = require('connect-flash');
-const session = require('express-session');
 const app = express();
 
-app.use(session({
-    secret: 'secret key',
-    resave: false,
-    saveUninitialized: false
-  }));
+
 
   app.use(flash());
 
