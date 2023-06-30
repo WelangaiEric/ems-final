@@ -54,8 +54,12 @@ router.post('/requests',(req,res)=>{
 
 
             let check
-            Users.findOne({id:data.empId})
+            let empid = `${req.body.empId}`
+
+            Users.findOne({_id:empid})
             .then((result)=>{
+                // console.log(empId)
+
                 check = result
                 console.log(check)
                       const finder= `${check.firstName}${check.lastName}`
@@ -105,7 +109,7 @@ router.post('/newuser',(req,res)=>{
 })
 router.get('/axios',async (req,res)=>{
     await axios.get(
-        "https://ems-v1og.onrender.com/users"
+        "http://localhost:3000/users"
     )
     .then((users)=>{
         // console.log(users.data)
@@ -129,11 +133,11 @@ router.post('/deleteuser',(req,res)=>{
     
     
 })
-router.post('/updateuser',(req,res)=>{
+router.post('/updateuser/:id',(req,res)=>{
     let query =  req.body
-    Users.findOneAndUpdate({id:req.body.id},{$set:query})
-    .then(()=>res.redirect('/admin-portal'))
-    .catch((err)=>console.log(err))
+    Users.findOneAndUpdate({id:req.params.id},{$set:query})
+    .then((data)=>res.send(data))
+    .catch((err)=>res.send(err))
 })
 
 // task 
