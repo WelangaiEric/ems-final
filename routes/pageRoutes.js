@@ -8,6 +8,16 @@ const emailValidator = require('deep-email-validator');
 const Tasks = require('../models/tasks')
 const Users = require('../models/users')
 
+const flash = require('connect-flash');
+
+app.use(session({
+    secret: 'secret key',
+    resave: false,
+    saveUninitialized: false
+  }));
+
+app.use(flash());
+
 
 
 const urlencodedParser = bodyParser.urlencoded({extended:false})
@@ -58,7 +68,7 @@ router.get('/admin-portal', async (req,res)=>{
     )
     .then((users)=>{
         let usersData = users.data
-        res.render('admin',{title:'admin portal',data:usersData,tasks:taskData,requests:requestData})
+        res.render('admin',{title:'admin portal',data:usersData,tasks:taskData,requests:requestData,message: req.flash('message')})
 
         
     })
