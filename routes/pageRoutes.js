@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const emailValidator = require('deep-email-validator');
 const Tasks = require('../models/tasks')
 const Users = require('../models/users')
+const session = require('express-session');
 
 const flash = require('connect-flash');
 const app = express();
