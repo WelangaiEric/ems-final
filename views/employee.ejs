@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="wrap-header-body">
-                <h1>Hello John Doe</h1>
+                <h1>Hello <%=user.firstName%> <%=user.lastName%></h1>
                 <h2>Welcome To The Portal</h2>
                 <div class="links">
                     <h4>Quick Links:</h4>
@@ -86,7 +86,7 @@
                         <div class="modal-body">
                             <form action="/password-reset" method="post">
                                 
-                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                    <input type="text" hidden name="id" class="form-control"  value=<%=user._id%>>
                                 
                                 <div class="input-group mt-3">
                                     <input type="password" class="form-control" name="old-password" placeholder="Old Password">
