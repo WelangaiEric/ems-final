@@ -135,8 +135,8 @@ router.post('/deleteuser',(req,res)=>{
 })
 router.post('/updateuser/:id',(req,res)=>{
     let query =  req.body
-    Users.findOneAndUpdate({id:req.params.id},{$set:query})
-    .then((data)=>res.send(data))
+    Users.findOneAndUpdate({id:req.body.id},{$set:query})
+    .then((data)=>res.redirect('/admin-portal'))
     .catch((err)=>res.send(err))
 })
 
