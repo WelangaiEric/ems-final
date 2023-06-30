@@ -237,7 +237,7 @@
                         <button class="btn bg-blue text-white" data-bs-toggle="modal" data-bs-target="#task">Add Task</button>
                     </div>
                     <div class="task-manager-body mb-3">
-                        <% if (tasks) {%>  
+                        <% if (typeof tasks != 'undefined') {%>  
                             <% for(let task of tasks) {%>
                                 <div class="shape">
                                 <div class="task-logo">
