@@ -86,7 +86,7 @@
                         <div class="modal-body">
                             <form action="/password-reset" method="post">
                                 
-                                    <input type="text" hidden name="id" class="form-control"  value=<%=user._id%>>
+                                    <input type="text" hidden name="id" class="form-control"  value="">
                                 
                                 <div class="input-group mt-3">
                                     <input type="password" class="form-control" name="old-password" placeholder="Old Password">
@@ -162,7 +162,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="/issues" method="post">
-                                <input type="text" name="id" hidden class="form-control"value="1">
+                                <input type="text" name="id" hidden class="form-control"value=<%=user._id%>>
                                 <input type="text" name="empName" hidden class="form-control"value="welangai eric">
                             <div class="input-group mt-3">
                                 <input type="text" name="issueType" class="form-control" placeholder="Issue Type">
@@ -276,18 +276,7 @@
                     <div class="tasks">
                         <h4><i class="bi bi-list-task"></i> My Tasks</h4>
 
-                       
-                            <% if (typeof user !='undefined') {%>  
-                                <div class="task-header">
-                                <form action="/mytasks" method="post">
-
-                                <input type="text" name="user" hidden value=<%=user.firstName%><%=user.lastName%>>
-
-                                <button type="submit" class="btn bg-blue text-white">My Tasks</button>
-                                
-                            </form>
-
-                        </div>
+        
                             <% if (typeof tasks !='undefined') {%>  
                         <div class="task-body">
 
@@ -313,7 +302,7 @@
                            
                         
 
-                        <% } %>
+                     
                         
                     </div>
                     <div class="about">
