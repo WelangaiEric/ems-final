@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express-session": "^1.17.2",
     "connect-flash": "^0.1.1",
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
