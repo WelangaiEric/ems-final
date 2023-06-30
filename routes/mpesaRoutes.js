@@ -2,12 +2,7 @@ const express = require('express')
 const router = express.Router()
 require('dotenv').config()
 const axios = require('axios')
-const flash = require('connect-flash');
-const app = express();
 
-
-
-  app.use(flash());
 
 // token generation middleware
 const generateToken = async ( req,res,next)=>{
@@ -74,11 +69,10 @@ router.post('/send',generateToken, async (req,res)=>{
 
     ).then((result)=>{
        
-        req.flash('message', 'Payment initiated');
+      
         res.redirect('/admin-portal')
 
     }).catch((err)=>{
-        req.flash('message', 'error encountered: please try again');
         res.redirect('/admin-portal')
         
         
@@ -114,11 +108,11 @@ router.post('/salary',generateToken ,async (req,res)=>{
     )
     .then((result)=>{
        
-        req.flash('message', 'Payment initiated');
+       
         res.redirect('/admin-portal')
 
     }).catch((err)=>{
-        req.flash('message', 'error encountered: please try again');
+        
         res.redirect('/admin-portal')
         
         
