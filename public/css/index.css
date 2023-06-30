@@ -12,6 +12,9 @@
     box-sizing: border-box;
     
 }
+.issues{
+    margin: 5px;
+}
 .text-blue{
     color: var(--Dark-blue) !important;
 }
